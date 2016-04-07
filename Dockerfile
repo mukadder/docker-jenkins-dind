@@ -22,6 +22,11 @@ RUN chmod +x /usr/local/bin/wrapdocker
 
 # Define additional metadata for our image.
 VOLUME /var/lib/docker
+# configuration add this for maven 
+ADD settings.xml /root/.m2/settings.xml
+RUN apt-get update
+# install nodejs and npm as kc needs 
+RUN apt-get install -y nodejs npm git git-core
 
 ENV DOCKER_COMPOSE_VERSION 1.3.3
 
